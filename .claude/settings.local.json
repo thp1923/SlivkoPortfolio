@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rtk npx *)",
+      "Bash(npx --yes @superdesign/cli@latest get-design --draft-id 64abfa9a-87bb-4f88-b932-28beedb654eb)",
+      "Bash(rtk read *)"
+    ]
+  }
+}
