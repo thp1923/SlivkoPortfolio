@@ -365,6 +365,18 @@ img {
     box-sizing: border-box;
 }
 
+/* About me image in royal-decree - smaller to match old page style */
+.about-img {
+    width: 150px;
+    height: auto;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    border: 3px solid var(--red);
+    box-shadow: 4px 4px 0 var(--red);
+    display: block;
+    margin: 0 auto 20px; /* center it */
+}
+
 /* Social links styling */
 .social-links {
     display: flex;
