@@ -169,6 +169,11 @@ body {
 .royal-decree {
     background-color: rgba(0, 0, 0, 0.2);
     margin-bottom: 30px;
+    text-align: left;
+}
+
+.royal-decree .about-img {
+    margin: 0 0 20px;
 }
 
 .section-header {
