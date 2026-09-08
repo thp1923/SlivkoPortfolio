@@ -5,6 +5,70 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // ===== COMMENTS FROM comment.md =====
+    function parseComments(markdown) {
+        return markdown
+            .replace(/\r/g, '')
+            .trim()
+            .split(/\n\s*\n(?=")/)
+            .map((entry) => {
+                const attribution = entry.match(/\s+-\s+([^\n]+)\s*$/);
+                const author = attribution ? attribution[1].trim() : 'Người bạn ẩn danh';
+                let message = attribution ? entry.slice(0, attribution.index) : entry;
+
+                message = message.trim().replace(/^"\s*/, '').replace(/\s*"$/, '').trim();
+                return { author, message };
+            })
+            .filter(({ message }) => message);
+    }
+
+    function renderComments(comments) {
+        const list = document.querySelector('#comments-list');
+        const status = document.querySelector('#comments-status');
+        if (!list || !status) return;
+
+        list.replaceChildren();
+        comments.forEach(({ author, message }) => {
+            const article = document.createElement('article');
+            article.className = 'comment-card';
+
+            const text = document.createElement('p');
+            text.className = 'comment-card__text';
+            text.textContent = message;
+
+            const byline = document.createElement('cite');
+            byline.className = 'comment-card__author';
+            byline.textContent = `— ${author}`;
+
+            article.append(text, byline);
+            list.append(article);
+        });
+
+        list.setAttribute('aria-busy', 'false');
+        status.textContent = `${comments.length} lời nhắn`;
+    }
+
+    async function loadComments() {
+        const list = document.querySelector('#comments-list');
+        const status = document.querySelector('#comments-status');
+        if (!list || !status) return;
+
+        try {
+            const response = await fetch('comment.md');
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            renderComments(parseComments(await response.text()));
+        } catch (error) {
+            list.setAttribute('aria-busy', 'false');
+            status.textContent = 'Không thể tải lời nhắn';
+            const notice = document.createElement('p');
+            notice.className = 'comments-empty';
+            notice.textContent = 'Hãy mở trang qua web server để hiển thị nội dung từ comment.md.';
+            list.replaceChildren(notice);
+        }
+    }
+
+    loadComments();
+
     // ===== SMOOTH SCROLLING WITH EASING =====
     function smoothScrollTo(targetY, duration) {
         if (prefersReducedMotion) {
