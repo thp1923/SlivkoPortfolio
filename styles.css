@@ -170,6 +170,10 @@ body {
     background-color: rgba(0, 0, 0, 0.2);
     margin-bottom: 30px;
     text-align: left;
+    /* Place the decree in the open space beside the left-side illustration. */
+    position: relative;
+    left: calc(-250px - 30px);
+    width: fit-content;
 }
 
 .royal-decree .about-img {
@@ -324,6 +328,10 @@ body {
     .mascot-img {
         width: 150px;
     }
+
+    .royal-decree {
+        left: calc(-200px - 30px);
+    }
 }
 
 @media (max-width: 768px) {
@@ -346,6 +354,10 @@ body {
     .main-content {
         grid-column: 1;
         grid-template-columns: minmax(0, 1fr);
+    }
+
+    .royal-decree {
+        left: auto;
     }
 
     .mascot-container {
