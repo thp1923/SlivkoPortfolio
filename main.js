@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // ===== COMMENTS FROM comment.md =====
-    function parseComments(markdown) {
+    const parseComments = (markdown) => {
         return markdown
             .replace(/\r/g, '')
             .trim()
@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 return { author, message };
             })
             .filter(({ message }) => message);
-    }
+    };
 
-    function renderComments(comments) {
+    const renderComments = (comments) => {
         const list = document.querySelector('#comments-list');
         const status = document.querySelector('#comments-status');
         if (!list || !status) return;
@@ -46,9 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         list.setAttribute('aria-busy', 'false');
         status.textContent = `${comments.length} lời nhắn`;
-    }
+    };
 
-    async function loadComments() {
+    const loadComments = async () => {
         const list = document.querySelector('#comments-list');
         const status = document.querySelector('#comments-status');
         if (!list || !status) return;
@@ -65,12 +65,12 @@ document.addEventListener('DOMContentLoaded', () => {
             notice.textContent = 'Hãy mở trang qua web server để hiển thị nội dung từ comment.md.';
             list.replaceChildren(notice);
         }
-    }
+    };
 
     loadComments();
 
     // ===== SMOOTH SCROLLING WITH EASING =====
-    function smoothScrollTo(targetY, duration) {
+    const smoothScrollTo = (targetY, duration) => {
         if (prefersReducedMotion) {
             window.scrollTo({ top: targetY, behavior: 'auto' });
             return;
@@ -80,11 +80,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const distance = targetY - startY;
         let startTime = null;
 
-        function easeOutCubic(t) {
+        const easeOutCubic = (t) => {
             return 1 - Math.pow(1 - t, 3);
-        }
+        };
 
-        function step(timestamp) {
+        const step = (timestamp) => {
             if (!startTime) startTime = timestamp;
             const progress = Math.min((timestamp - startTime) / duration, 1);
             const easedProgress = easeOutCubic(progress);
@@ -93,10 +93,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (progress < 1) {
                 requestAnimationFrame(step);
             }
-        }
+        };
 
         requestAnimationFrame(step);
-    }
+    };
 
     // Handle navigation clicks
     document.querySelectorAll('.navbar a').forEach(link => {
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Update active section on scroll
-    function updateActiveNav() {
+    const updateActiveNav = () => {
         const scrollPos = window.pageYOffset;
 
         document.querySelectorAll('section[id]').forEach(section => {
@@ -135,17 +135,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
-    }
+    };
 
     // Navbar scroll effect
-    function updateNavbarScroll() {
+    const updateNavbarScroll = () => {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-    }
+    };
 
     window.addEventListener('scroll', updateActiveNav);
     window.addEventListener('scroll', updateNavbarScroll);
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateNavbarScroll(); // Initial check
 
     // ===== INTERACTIVE MOUSE-FOLLOWING PARTICLES =====
-    function createParticleSystem() {
+    const createParticleSystem = () => {
         if (prefersReducedMotion) return; // Skip particles if reduced motion preferred
 
         // Check if device can handle particles (simple heuristic)
@@ -171,10 +171,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const ctx = canvas.getContext('2d');
 
-        function resizeCanvas() {
+        const resizeCanvas = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-        }
+        };
 
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Animation loop
-        function animate() {
+        const animate = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             particles.forEach(particle => {
@@ -262,16 +262,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             requestAnimationFrame(animate);
-        }
+        };
 
         animate();
-    }
+    };
 
     // Initialize particle system
     createParticleSystem();
 
     // ===== ELEMENT-LEVEL STAGGER ANIMATIONS =====
-    function createStaggerAnimations() {
+    const createStaggerAnimations = () => {
         if (prefersReducedMotion) return;
 
         // Observer options
@@ -346,7 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 child.style.transition = 'all 0.6s ease-out';
             });
         });
-    }
+    };
 
     // Initialize stagger animations
     createStaggerAnimations();
