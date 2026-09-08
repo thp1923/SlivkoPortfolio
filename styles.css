@@ -15,7 +15,7 @@ body {
     color: var(--white);
     line-height: 1.6;
     position: relative;
-    overflow-x: visible;
+    overflow-x: hidden;
 }
 
 /* Dithered halftone overlay - creates the bitmap/Y2K effect */
@@ -100,8 +100,10 @@ body {
 /* Main content area */
 .main-content {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-column: 1 / -1;
+    grid-template-columns: 250px minmax(0, 1fr) 250px;
     gap: 30px;
+    min-width: 0;
 }
 
 /* Left sidebar */
@@ -152,6 +154,7 @@ body {
 /* Central content */
 .central-content {
     grid-column: 2;
+    min-width: 0;
 }
 
 .page-title {
@@ -166,6 +169,15 @@ body {
 .royal-decree {
     background-color: rgba(0, 0, 0, 0.2);
     margin-bottom: 30px;
+    text-align: left;
+    /* Place the decree in the open space beside the left-side illustration. */
+    position: relative;
+    left: calc(-250px - 30px);
+    width: fit-content;
+}
+
+.royal-decree .about-img {
+    margin: 0 0 20px;
 }
 
 .section-header {
@@ -231,7 +243,7 @@ body {
 
 /* Right sidebar */
 .right-sidebar {
-    grid-column: 33;
+    grid-column: 3;
 }
 
 .mascot-container {
@@ -304,6 +316,10 @@ body {
         padding: 15px;
     }
 
+    .main-content {
+        grid-template-columns: 200px minmax(0, 1fr) 200px;
+    }
+
     .left-sidebar,
     .right-sidebar {
         width: 200px;
@@ -311,6 +327,10 @@ body {
 
     .mascot-img {
         width: 150px;
+    }
+
+    .royal-decree {
+        left: calc(-200px - 30px);
     }
 }
 
@@ -323,7 +343,7 @@ body {
 
     .left-sidebar,
     .right-sidebar {
-        grid-column: 30;
+        grid-column: 1;
         width: auto;
     }
 
@@ -333,6 +353,11 @@ body {
 
     .main-content {
         grid-column: 1;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .royal-decree {
+        left: auto;
     }
 
     .mascot-container {
@@ -341,6 +366,106 @@ body {
 
     .site-footer {
         text-align: center;
+    }
+}
+
+/* Comment section */
+.comments-section {
+    margin-top: 42px;
+    min-width: 0;
+}
+
+.comments-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.comments-heading .section-header {
+    margin: 0;
+    text-align: left;
+}
+
+.comments-status {
+    margin: 0;
+    color: var(--gray);
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem;
+    text-align: right;
+}
+
+.comments-list {
+    display: grid;
+    gap: 14px;
+    max-height: min(72vh, 760px);
+    padding: 14px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    border: 2px solid var(--red);
+    background: rgba(0, 0, 0, 0.32);
+    scrollbar-color: var(--red) var(--black);
+    scrollbar-width: thin;
+}
+
+.comment-card {
+    min-width: 0;
+    padding: 16px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 0, 0, 0.65);
+    background: rgba(255, 0, 0, 0.06);
+}
+
+.comment-card__text {
+    margin: 0;
+    color: var(--white);
+    font-family: 'Times New Roman', serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+
+.comment-card__author {
+    display: block;
+    margin-top: 12px;
+    color: var(--red);
+    font-family: Arial, sans-serif;
+    font-size: 0.82rem;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    overflow-wrap: anywhere;
+}
+
+.comments-empty {
+    margin: 0;
+    color: var(--gray);
+    font-family: Arial, sans-serif;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 768px) {
+    .comments-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .comments-status {
+        text-align: left;
+    }
+
+    .comments-list {
+        max-height: 70vh;
+        padding: 10px;
+    }
+
+    .comment-card {
+        padding: 13px;
     }
 }
 
