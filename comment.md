@@ -79,7 +79,11 @@ Tui cảm nhận là Xanh khá bao dung với thế giới. Trông Xanh tưng t�
 
 " Linh thấy anh Chảo dễ thương lắm. Nói chuyện hay dùng dấu chấm cuối câu nhưng chưa bao giờ em thấy anh cọc hay tức giận cả. Dấu chấm như cách kết thúc câu thôi. Anh giàu và anh sẵn sàng cho bạn bè, người lạ, người yêu mình tất. Anh không tiếc cái gì cả, có gì cho là cho hết, làm được là làm hết. Hi vọng rằng cuộc đời nhẹ nhàng với anh hơn, như cách anh đối xử với mọi người. Mong anh tìm được người yêu thương anh nhiều và không rời bỏ anh. " - Linh
 
-" Cậu là người khá cứng đầu, nhưng mà lại có tư duy sắc bén. Bản thân cậu biết rõ cậu muốn gì và mọi thứ trong cuộc sống của cậu luôn có những thứ khiến người khác ngạc nhiên. Chung là cậu khá giống tôi ở một số điểm " - Shiro [ INTJ | SX8 ]
+" Cậu là người khá cứng đầu, nhưng mà lại có tư duy sắc bén. Bản thân cậu biết rõ cậu muốn gì và mọi thứ trong cuộc sống của cậu luôn có những thứ khiến người khác ngạc nhiên. Chung là cậu khá giống tôi ở một số điểm
+
+Bro khá nhiều thời gian cho bản thân nhưng ai nhờ gì cũng giúp, chung là tốt tính và rất hào sảng. Bro có thể lắng nghe người khác mà không phàn nàn, không đi theo hướng một chiều. Đặc biệt bro luôn nghĩ cho người khác. Khá tận tâm trong công việc.
+
+Cậu khiến người ta cảm thấy an toàn khi chơi chung. Bro không hay nổi giận với ai và khá chill " - Shiro [ INTJ | SX8 ]
 
 " T thấy Slivko là kiểu người nhìn ngoài khá dễ tính thoải mái và cởi mở, nhưng bên trong lại suy nghĩ nhiều hơn vẻ ngoài thể hiện thậm chí cực kì mãnh liệt. Mày có xu hướng đào rất sâu vào những thứ mình hứng thú, thích tìm hiểu cho tới khi thật sự hiểu nó, và thường nhìn mọi chuyện theo hướng phân tích khá nhiều?? Xung quanh thấy nhiều đứa bất ổn mà mày thì không hề hấn gì
 
