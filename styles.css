@@ -255,24 +255,22 @@ body {
 .mascot-3d {
     perspective: 1000px;
     display: inline-block;
+    width: 180px;
+    padding: 20px;
+    background-image: url('Images/1191028-ff0000.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .mascot-img {
-    width: 180px;
+    width: 100%;
     height: auto;
-    border: 3px solid var(--red);
-    box-shadow: 4px 4px 0 var(--red);
     transition: transform 0.3s ease;
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
 }
-
-.mascot-img:hover {
-    transform: translate(4px, 4px);
-    box-shadow: 2px 2px 0 var(--red);
-}
-
  .media-widget {
      background-color: rgba(0, 0, 0, 0.2);
      border: 2px solid var(--red);
