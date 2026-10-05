@@ -54,8 +54,11 @@ body {
     grid-column: 1 / -1; /* Span all columns */
     text-align: center;
     padding: 20px 0;
-    border-bottom: 2px solid var(--red);
-    margin-bottom: 30px;
+    background-image: url('Images/1769669-ff0000.svg');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 500px auto;
+    padding-bottom: 180px;
 }
 
 .masthead {
@@ -215,14 +218,17 @@ body {
 
 .update-item {
     margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+    padding-bottom: 40px;
+    background-image: url('Images/1769669-ff0000.svg');
+    background-repeat: repeat-x;
+    background-position: bottom;
+    background-size: auto 30px;
 }
 
 .update-item:last-child {
     margin-bottom: 0;
     padding-bottom: 0;
-    border-bottom: none;
+    background-image: none;
 }
 
 .update-date {
@@ -630,4 +636,3 @@ img {
         transform: translateY(-30px);
     }
 }
-
