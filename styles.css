@@ -304,8 +304,11 @@ body {
     font-family: Arial, sans-serif;
     font-size: 0.8rem;
     color: var(--gray);
-    border-top: 1px solid var(--red);
-    margin-top: 30px;
+    background-image: url('Images/1751088-ff0000.svg');
+    background-repeat: repeat-x;
+    background-position: top;
+    background-size: auto 20px;
+    padding-top: 40px;
 }
 
 /* Responsive design */
